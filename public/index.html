@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Roleta da Live — Painel</title><link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<main class="shell">
+  <header class="top"><div class="mark">RL</div><div><p class="eyebrow">LIVE TOOLS</p><h1>Roleta da Live</h1></div><span class="pill">LIVEPIX · OBS</span></header>
+  <section id="loginPanel" class="panel login">
+    <p class="eyebrow">ÁREA DO STREAMER</p><h2>Entrar no painel</h2><p class="muted">Gerencie os prêmios e teste a roleta da sua transmissão.</p>
+    <form id="loginForm"><label>Usuário<input name="username" value="admin" autocomplete="username" required></label><label>Senha<input name="password" type="password" autocomplete="current-password" required></label><button class="primary">Entrar</button></form><p id="loginError" class="error"></p>
+  </section>
+  <section id="adminPanel" hidden>
+    <div class="welcome"><div><p class="eyebrow">PAINEL DE CONTROLE</p><h2>Sua roleta, suas regras.</h2></div><button id="logout" class="secondary">Sair</button></div>
+    <div class="stats"><div class="panel"><span class="muted">Giros na fila</span><strong id="queueCount">0</strong></div><div class="panel"><span class="muted">Roletas configuradas</span><strong id="wheelCount">3</strong></div><div class="panel"><span class="muted">Prêmios cadastrados</span><strong id="prizeCount">18</strong></div></div>
+    <div class="panel"><div class="sectionHead"><div><p class="eyebrow">01 / ROLETAS</p><h2>Preço e prêmios de cada roleta</h2><p class="muted">Edite o nome, o preço e os prêmios de cada nível. O teste é grátis e não exige Pix.</p></div><button id="addWheel" class="secondary">+ Nova roleta</button></div><div id="wheelList" class="wheelList"></div><div class="actions"><button id="saveWheels" class="primary">Salvar todas as roletas</button><button id="cancelTests" class="secondary">Cancelar testes pendentes</button></div><p id="adminMessage" class="message"></p><p class="muted small">Regra do Pix: o sistema escolhe a roleta de maior preço que caiba no valor pago e libera quantos giros completos desse nível forem possíveis. Ex.: com preços de R$ 2, R$ 20 e R$ 100, um Pix de R$ 100 libera 1 giro da roleta de R$ 100.</p></div>
+    <div class="panel"><p class="eyebrow">02 / PERSONALIZAÇÃO</p><h2>Nome que aparece na roleta</h2><p class="muted">Escreva o nome ou apelido que você quer mostrar no topo da roleta. Deixe vazio para exibir “SUA ROLETA”.</p><label>Nome de exibição<input id="displayNameInput" maxlength="40" placeholder="Ex.: samue.garage"></label><button id="saveBranding" class="primary">Salvar nome</button><p id="brandingMessage" class="message"></p><p class="muted small">Criado por Samuel Pereira.</p></div>
+    <div class="panel"><p class="eyebrow">03 / INTEGRAÇÃO COM OBS</p><h2>Fonte de navegador</h2><p class="muted">Para testar localmente, use a URL local abaixo como fonte “Navegador” no OBS. Para receber Pix real, o servidor precisa estar hospedado com HTTPS público.</p><div class="urlBox"><code id="overlayUrl">Configure BASE_URL e OBS_TOKEN no .env</code><button id="copyUrl" class="secondary">Copiar URL</button></div><p class="muted small">Mantenha o token da URL privado. Ele permite visualizar a roleta, não entrar no painel.</p></div>
+    <div class="panel"><p class="eyebrow">04 / RESULTADOS</p><h2>Últimos giros</h2><div id="history" class="history muted">Nenhum giro ainda.</div></div>
+  </section>
+  <footer>Roleta da Live · Criado por Samuel Pereira</footer>
+</main><script src="/admin.js"></script>
+</body></html>
